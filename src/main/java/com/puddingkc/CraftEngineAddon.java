@@ -4,7 +4,7 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.momirealms.craftengine.bukkit.api.CraftEngineBlocks;
 import net.momirealms.craftengine.bukkit.api.CraftEngineFurniture;
 import net.momirealms.craftengine.bukkit.api.CraftEngineItems;
-import net.momirealms.craftengine.core.entity.furniture.CustomFurniture;
+import net.momirealms.craftengine.core.entity.furniture.Furniture;
 import net.momirealms.craftengine.core.item.CustomItem;
 import net.momirealms.craftengine.core.util.Key;
 import org.bukkit.Bukkit;
@@ -67,7 +67,7 @@ public class CraftEngineAddon extends PlaceholderExpansion {
         Entity entity = player.getTargetEntity(5);
         if (entity == null) { return null; }
 
-        CustomFurniture furniture = (CustomFurniture) CraftEngineFurniture.getLoadedFurnitureByBaseEntity(entity);
+        Furniture furniture = CraftEngineFurniture.getLoadedFurnitureByBaseEntity(entity);
         if (furniture == null) { return null; }
 
         return furniture.id().asString();
@@ -77,7 +77,8 @@ public class CraftEngineAddon extends PlaceholderExpansion {
         Entity entity = player.getTargetEntity(5);
         if (entity == null) { return false; }
 
-        return CraftEngineFurniture.isFurniture(entity);
+        Furniture furniture = CraftEngineFurniture.getLoadedFurnitureByBaseEntity(entity);
+        return furniture != null;
     }
 
     private boolean handleIsCustomBlockPlaceholder(Player player) {
