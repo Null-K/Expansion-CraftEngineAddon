@@ -40,8 +40,6 @@ public class CraftEngineAddon extends PlaceholderExpansion {
     public String onPlaceholderRequest(Player player, @NotNull String params) {
         if (player == null || !player.isOnline() || params.isEmpty()) { return null; }
 
-        ItemStack handItem = player.getInventory().getItemInMainHand();
-
         if (params.toLowerCase().startsWith("item_has_")) {
             return getReturn(handleHasItemPlaceholder(player, params));
         }
@@ -51,9 +49,9 @@ public class CraftEngineAddon extends PlaceholderExpansion {
         }
 
         return switch (params.toLowerCase()) {
-            case "item_is_custom" -> getReturn(CraftEngineItems.isCustomItem(handItem));
+            case "item_is_custom" -> getReturn(CraftEngineItems.isCustomItem(player.getInventory().getItemInMainHand()));
             case "item_key" -> {
-                Key key = CraftEngineItems.getCustomItemId(handItem);
+                Key key = CraftEngineItems.getCustomItemId(player.getInventory().getItemInMainHand());
                 yield key != null ? key.toString() : null;
             }
             case "block_is_custom" -> getReturn(handleIsCustomBlockPlaceholder(player));
