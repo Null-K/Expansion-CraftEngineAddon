@@ -1,6 +1,6 @@
 # CraftEngine Addon PlaceholderAPI (CEA) Placeholders
 
-> **Prerequisite Plugin:** [CraftEngine]([http://xxx](https://modrinth.com/plugin/craftengine))
+> **Prerequisite Plugin:** [CraftEngine](https://modrinth.com/plugin/craftengine)
 
 This document describes the placeholders provided by the CraftEngineAddon (CEA) extension.
 
