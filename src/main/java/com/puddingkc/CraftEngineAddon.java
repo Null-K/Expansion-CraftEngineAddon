@@ -87,8 +87,8 @@ public class CraftEngineAddon extends PlaceholderExpansion {
     }
 
     private boolean handleHasItemPlaceholder(Player player, String params) {
-        int start = params.indexOf('{');
-        int end = params.indexOf('}');
+        int start = params.indexOf('<');
+        int end = params.indexOf('>');
 
         if (start == -1 || end == -1 || end <= start + 1) { return false; }
 
@@ -124,8 +124,8 @@ public class CraftEngineAddon extends PlaceholderExpansion {
     }
 
     private String handleCountItemPlaceholder(Player player, String params) {
-        int start = params.indexOf('{');
-        int end = params.indexOf('}');
+        int start = params.indexOf('<');
+        int end = params.indexOf('>');
 
         if (start == -1 || end == -1 || end <= start + 1) { return "0"; }
 
